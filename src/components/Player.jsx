@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
 
 const Player = () => {
-  const { track, seekBar, seekBg, playStatus, play, pause,time,previous, next } = useContext(PlayerContext);
+  const { track, seekBar, seekBg, playStatus, play, pause,time,previous, next,seekSong } = useContext(PlayerContext);
 
   return (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
@@ -47,7 +47,7 @@ const Player = () => {
           <p>{time.currentTime.minute}:{time.currentTime.second}</p>
           <div
             ref={seekBg}
-            className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer"
+            className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer" onClick={(e)=>seekSong(e)}
           >
             <hr
               ref={seekBar}
